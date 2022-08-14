@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Colour picker">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="Radhika Nair">
+        <title>Color Picker</title>
+        <link rel="stylesheet" href="colorjoe/colorjoe.css">
+        <script src="colorjoe/colorjoe.min.js"></script>
+        <style>
+            body{
+                background: #eeeeee;
+                margin: 20px;
+            }
+            .colorPicker{
+                background: none;
+                border: none;
+                margin: 0;
+            }
+            .colorPicker .oned{
+                margin-right: 0;
+            }
+            .container{
+                display: flex;
+                width: 500px;
+                padding: 20px;
+                background: #ffffff;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+            }
+            .config{
+                flex-grow: 1;
+                margin-left: 20px;
+            }
+            .config-title{
+                text-align: center;
+                padding : 15px 0;
+                font-family: sans-serif;
+                font-weight: bold;
+            }
+            .complementary-colors-title{
+                text-align: center;
+                padding : 15px 0;
+                font-family: sans-serif;
+                font-weight: bold;
+            }
+            .triadic-colors-title{
+                text-align: center;
+                padding : 15px 0;
+                font-family: sans-serif;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="colorjoe-widget"></div>
+            <div class="config">
+                <div class="config-title">Selected Color</div>
+                <div class="selected-color-hex">#009578</div>
+                <div class="selected-color"></div>
+                <div class="complementary-colors-title">Complementary Colors</div>
+                <div class="complementary-colors"></div>
+                <div class="triadic-colors-title">Triadic Colors</div>
+                <div class="triadic-colors"></div>
+            </div>
+            <script>
+                 const cj = colorjoe.rgb(document.querySelector(".colorjoe-widget"));
+                 cj.show();
+            </script>
+        </div>
+    </body>
+</html>
