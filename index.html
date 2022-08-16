@@ -14,16 +14,47 @@
             <div class="colorjoe-widget"></div>
             <div class="config">
                 <div class="config-title">Selected Color</div>
-                <div class="selected-color-hex">#009578</div>
+                <div class="selected-color-hex"></div>
                 <div class="selected-color"></div>
                 <div class="complementary-colors-title">Complementary Colors</div>
+                <div class="complementary-colors-hex"></div>
                 <div class="complementary-colors"></div>
                 <div class="triadic-colors-title">Triadic Colors</div>
+                <div class="triadic-colors-hex"></div>
+                <div class="triadic-colors"></div>
+                <div class="triadic-colors-hex"></div>
                 <div class="triadic-colors"></div>
             </div>
             <script>
-                 const cj = colorjoe.rgb(document.querySelector(".colorjoe-widget"));
-                 cj.show();
+                class ColorPicker{
+                    constructor(root){
+                        this.root = root;
+                        this.colorjoe = colorjoe.rgb(this.root.querySelector(".colorjoe-widget"));
+                        this.selectedColor = null;
+                        this.complementaryColors = this.getComplementaryColors();
+                        this.triadicColors = this.getTriadicColors();
+                        this.colorjoe.show();
+                        this.setSelectedColor("#009578");
+                    }
+
+                    setSelectedColor(color){
+                        this.selectedColor = color;
+                        this.root.querySelector(".selected-color-hex").textContent = color;
+                        this.root.querySelector(".selected-color").style.background = color;
+
+                    }
+
+                    getComplementaryColors(){
+                        return ["#ffffff", "#ffffff"];
+                    }
+
+                    getTriadicColors(){
+                        return ["#ffffff", "#ffffff", "#ffffff"];
+                    }
+                
+                }
+
+                const cp = new ColorPicker(document.querySelector(".container"));
             </script>
         </div>
     </body>

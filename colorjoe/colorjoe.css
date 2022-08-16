@@ -242,3 +242,20 @@ body{
     font-family: sans-serif;
     font-weight: bold;
 }
+
+.selected-color-hex{
+    text-align: center;
+    font-family: monospace;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.selected-color, .complementary-colors, .triadic-colors{
+    height: 15px;
+    border:1px solid #eeeeee;
+    border-radius: 3px;
+}
+
+.complementary-colors, .triadic-colors:not(:last-of-type){
+    margin-bottom: 2px;
+}
