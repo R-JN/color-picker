@@ -16,40 +16,50 @@
                 <div class="config-title">Selected Color</div>
                 <div class="selected-color-hex"></div>
                 <div class="selected-color"></div>
-                <div class="complementary-colors-title">Complementary Colors</div>
-                <div class="complementary-colors-hex"></div>
-                <div class="complementary-colors"></div>
+                <div class="complementary-color-title">Complementary Color</div>
+                <div class="complementary-color-hex"></div>
+                <div class="complementary-color"></div>
                 <div class="triadic-colors-title">Triadic Colors</div>
-                <div class="triadic-colors-hex"></div>
-                <div class="triadic-colors"></div>
-                <div class="triadic-colors-hex"></div>
-                <div class="triadic-colors"></div>
+                <div class="triadic-colors-hex1"></div>
+                <div class="triadic-colors1"></div>
+                <div class="triadic-colors-hex2"></div>
+                <div class="triadic-colors2"></div>
             </div>
             <script>
                 class ColorPicker{
                     constructor(root){
                         this.root = root;
                         this.colorjoe = colorjoe.rgb(this.root.querySelector(".colorjoe-widget"));
-                        this.selectedColor = null;
-                        this.complementaryColors = this.getComplementaryColors();
-                        this.triadicColors = this.getTriadicColors();
+                        //this.selectedColor = null;
+                        //this.complementaryColor = null;
                         this.colorjoe.show();
-                        this.setSelectedColor("#009578");
+                        //this.setSelectedColor("#009578");
+
+                        this.colorjoe.on("change", color=> {
+                            this.setSelectedColor(color.hex());
+                            this.getComplementaryColor(color.hex());
+                            this.getTriadicColors(color.hex());
+                        });
                     }
 
                     setSelectedColor(color){
-                        this.selectedColor = color;
+                        //this.selectedColor = color;
                         this.root.querySelector(".selected-color-hex").textContent = color;
                         this.root.querySelector(".selected-color").style.background = color;
-
                     }
 
-                    getComplementaryColors(){
-                        return ["#ffffff", "#ffffff"];
+                    getComplementaryColor(color){
+                        //this.complementaryColor = color;
+                        
+                        this.root.querySelector(".complementary-color-hex").textContent = color;
+                        this.root.querySelector(".complementary-color").style.background = color;
                     }
 
-                    getTriadicColors(){
-                        return ["#ffffff", "#ffffff", "#ffffff"];
+                    getTriadicColors(color){
+                        this.root.querySelector(".triadic-colors-hex1").textContent = color;
+                        this.root.querySelector(".triadic-colors1").style.background = color;
+                        this.root.querySelector(".triadic-colors-hex2").textContent = color;
+                        this.root.querySelector(".triadic-colors2").style.background = color;
                     }
                 
                 }
